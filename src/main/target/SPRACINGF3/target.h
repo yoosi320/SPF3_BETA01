@@ -108,8 +108,11 @@
 #define ENSURE_MAG_DATA_READY_IS_HIGH
 
 #else //SPRACINGF3
+#define BARO
 #define USE_BARO_MS5611
-#define USE_BARO_BMP085
+//#define USE_BARO_BMP085
+#define USE_BARO_SPL06
+
 
 #define MAG
 #define USE_MAG_AK8975

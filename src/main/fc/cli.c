@@ -178,7 +178,8 @@ static const char * const lookupTableBaroHardware[] = {
     "NONE",
     "BMP085",
     "MS5611",
-    "BMP280"
+    "BMP280",
+    "SPL06"   //yoosi320
 };
 #endif
 

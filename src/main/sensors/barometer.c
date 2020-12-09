@@ -25,9 +25,11 @@
 
 #include "drivers/barometer.h"
 #include "drivers/barometer_bmp085.h"
+#include "drivers/barometer_spl06.h"
 #include "drivers/barometer_bmp280.h"
 #include "drivers/barometer_fake.h"
 #include "drivers/barometer_ms5611.h"
+
 #include "drivers/system.h"
 
 #include "fc/runtime_config.h"
@@ -89,6 +91,15 @@ bool baroDetect(baroDev_t *dev, baroSensor_e baroHardwareToUse)
         }
 #endif
         ; // fallthough
+case BARO_SPL06:    //yoosi302
+#if defined(USE_BARO_SPL06) || defined(USE_BARO_SPI_SPL06)
+        if (spl06Detect(dev)) {
+            baroHardware = BARO_SPL06;
+            break;
+        }  //yoosi320
+#endif
+        ; // fallthough
+
     case BARO_MS5611:
 #ifdef USE_BARO_MS5611
         if (ms5611Detect(dev)) {
