@@ -1,0 +1,92 @@
+{
+    "version": "2.0.0",
+    "type": "process",
+    "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+    },
+    "windows": {
+        "options": {
+            "env": { "Path":"c:\\cygwin64\\bin;d:\\dev\\gcc\\5_4_1\\bin;d:\\dev\\gcc\\5_4_1\\arm-none-eabi\\include;%Path%" }
+        }
+    },
+    "tasks": [
+        {
+            "taskName": "make SPRACINGF3 GDB",
+            "windows": {
+                "command": "make.exe",
+                "args": [
+                    "TARGET=SPRACINGF3",
+                    "DEBUG=GDB"
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "taskName": "make SPRACINGF3",
+            "windows": {
+                "command": "make.exe",
+                "args": [
+                    "TARGET=SPRACINGF3"
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },        
+        {
+            "taskName": "clean SPRACINGF3",
+            "windows": {
+                "command": "make.exe",
+                "args": [
+                    "TARGET=SPRACINGF3",
+                    "clean"
+                ]
+            },
+            "osx": {
+                "command": "make",
+                "args": [
+                    "TARGET=SPRACINGF3",
+                    "clean"
+                ]
+            },
+            "problemMatcher": []
+        }
+    ]
+}
